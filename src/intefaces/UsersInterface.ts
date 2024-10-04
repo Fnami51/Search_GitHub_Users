@@ -1,4 +1,4 @@
-interface GitHubUser {
+export interface GitHubUser {
     login: string;
     id: number;
     node_id: string;
@@ -25,4 +25,6 @@ interface GitHubUser {
     incomplete_results: boolean;
     items: GitHubUser[];
   }
+
+
   
