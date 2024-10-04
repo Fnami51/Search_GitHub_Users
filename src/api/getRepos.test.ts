@@ -6,7 +6,7 @@ describe('getRepos', () => {
     });
 
     it('should return data on successful fetch', async () => {
-        const mockResponse = { name: 'repo1', owner: { login: 'user1' } };
+        const mockResponse = [{ name: 'repo1', owner: { login: 'user1' } }];
         global.fetch = jest.fn().mockResolvedValue({
             ok: true,
             json: jest.fn().mockResolvedValue(mockResponse),
@@ -19,8 +19,7 @@ describe('getRepos', () => {
         expect(data).toEqual(mockResponse);
     });
 
-    it('should alert user on 403 error', async () => {
-        global.alert = jest.fn();
+    it('should throw an error on 403 response', async () => {
         global.fetch = jest.fn().mockResolvedValue({
             ok: false,
             status: 403,
@@ -30,7 +29,6 @@ describe('getRepos', () => {
         const url = 'https://api.github.com/users/user1/repos';
 
         await expect(getRepos(url)).rejects.toThrow('Sorry, GitHub is not responding :-(');
-        expect(alert).toHaveBeenCalledWith('Sorry, GitHub is not responding :-(');
     });
 
     it('should throw error on other non-2xx responses', async () => {

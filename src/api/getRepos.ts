@@ -6,7 +6,6 @@ export async function getRepos(url: string): Promise<any> {
 
         if (!response.ok) {
             if(response.status === 403) {
-                alert('Sorry, GitHub is not responding :-(')
                 throw new Error(`Sorry, GitHub is not responding :-(`);
             } else {
                 throw new Error(`Error: ${response.status} ${response.statusText}`);
