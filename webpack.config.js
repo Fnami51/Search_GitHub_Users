@@ -13,7 +13,10 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
+    alias: {
+      src: path.resolve(__dirname, 'src/'),
+    },
   },
   devServer: {
     port: 3035
