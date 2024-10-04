@@ -82,8 +82,8 @@ function ResultPage() {
         <s.Background>
             <s.SortDropdown onChange={handleSortChange} value={sortOrder}>
                 <option value="default">Default</option>
-                <option value="asc">Ascending order</option>
-                <option value="desc">Descending order</option>
+                <option value="asc">Ascending order of repositories</option>
+                <option value="desc">Descending order of repositories</option>
             </s.SortDropdown>
 
             <s.ResultList>
